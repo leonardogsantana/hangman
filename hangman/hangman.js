@@ -42,15 +42,15 @@ App.controller('HangmanCtrl', function($scope, $http) {
                 var win = true;
                 for(i = 0; i < $scope.hidden.length; i++)
                 {
-                    if($scope.hidden[i] == " ")
+                    if($scope.hidden[i] != "*")
+                        h += $scope.hidden[i];
+                    else if(aux[i] != "*")
+                        h += aux[i];
+                    else if($scope.hidden[i] == " ")
                     {
                         h += " ";
                         win = false;
                     }
-                    else if($scope.hidden[i] != "*")
-                        h += $scope.hidden[i];
-                    else if(aux[i] != "*")
-                        h += aux[i];
                     else
                     {
                         h += "*";
@@ -60,16 +60,17 @@ App.controller('HangmanCtrl', function($scope, $http) {
                 $scope.hidden = h;
                 if(win)
                     $scope.victory = "Você ganhou!!!";
-
-                if(wrongLetters.length < 5)
-                    $scope.miss = wrongLetters.length;
-                else
-                {
-                    $scope.miss = wrongLetters.length;
-                    $scope.victory = "Você perdeu!!!";
-                    EndGame();
-                }
             }
+            
+            if(wrongLetters.length < 5)
+                $scope.miss = wrongLetters.length;
+            else
+            {
+                $scope.miss = wrongLetters.length;
+                $scope.victory = "Você perdeu!!!";
+                EndGame();
+            }
+            
             //alert(aux);
             //alert($scope.hidden);
             document.getElementById("inputLetter").value = '';
