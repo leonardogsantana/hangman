@@ -7,12 +7,12 @@
         <script src="hangman/hangman.js"></script>
     </head>
 
-    <body>
+    <body class="centro">
         <div ng-app="App" ng-controller="HangmanCtrl">
 
-            <h1>Descubra a palavra</h1>
+            <h1>O jogo da forca</h1>
 
-            <div><img src="hangman/{{miss}}.png"></div>
+            <div class="centro"><img src="hangman/{{miss}}.png"></div>
             <button id="startButton" onclick="StartGame()">Começar o jogo!</button>
             <div id="inputChar">
                 <ul>
@@ -20,13 +20,14 @@
                         <a class="hiddenLetter">{{letter}}</a>
                     </li>
                 </ul>
-                <br>Digite uma letra: 
-                <form ng-submit="Update()">
-                    <input type="text" id="inputLetter" maxlength="1"/>
-                </form>
+                <div class="centro">
+                    <br>Digite uma letra: 
+                    <form ng-submit="Update()">
+                        <input type="text" id="inputLetter" maxlength="1"/>
+                    </form>
+                </div>
             </div>
             <div>{{victory}}</div>
-
 
         </div>
     </body>

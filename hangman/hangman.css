@@ -48,6 +48,11 @@ li a {
     background-color: white;
     color: black;
 }
+.centro
+{
+    position: absolute;
+    left:50%;
+}
 
 #startButton
 {
