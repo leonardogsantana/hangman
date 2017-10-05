@@ -33,8 +33,7 @@ App.controller('HangmanCtrl', function($scope, $http) {
 
         if(Conditions())
         {
-            if()
-               var aux = CheckInput(letter);
+            var aux = CheckInput(letter);
             //alert($scope.hidden);
             if(aux != null)
             {    
