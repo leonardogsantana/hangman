@@ -31,7 +31,7 @@ App.controller('HangmanCtrl', function($scope, $http) {
     {
         var letter = document.getElementById("inputLetter").value.toString();
 
-        if(!/[a-z]/gm.test(letter)     || letter.toLowerCase() != "ç" && letter.toLowerCase() != "ê" &&
+        if(!/[a-z]/gm.test(letter)     && letter.toLowerCase() != "ç" && letter.toLowerCase() != "ê" &&
            letter.toLowerCase() != "é" && letter.toLowerCase() != "à" && letter.toLowerCase() != "á" &&
            letter.toLowerCase() != "â" && letter.toLowerCase() != "ã" && letter.toLowerCase() != "õ" &&
            letter.toLowerCase() != "ó" && letter.toLowerCase() != "ò" && letter.toLowerCase() != "ô" &&      
@@ -86,20 +86,7 @@ App.controller('HangmanCtrl', function($scope, $http) {
     }
 });
 
-
-function Conditions()
-{
-    if()
-       return true;
-       return false;
-       }
-
-       function IsNumber(n) {
-        return !isNaN(parseFloat(n)) && isFinite(n);
-    }
-
-
-    /*function UpdateHoverLetter()
+/*function UpdateHoverLetter()
 {
     var x = [];
     x = document.getElementsByClassName("hiddenLetter");
@@ -119,68 +106,68 @@ function Conditions()
         }
 }*/
 
-    function CheckInput(letterX)
-    {
-        var test = '';
-        var invalido = true;
-        var currentWord2 = currentWord;
-        //alert(currentWord + currentWord.length.toString());
-        for (i = 0; i < currentWord.length; i++) 
-        { 
-            //alert(letterX + "  -  " + currentWord.charAt(i));
-            if(letterX.toLowerCase() == currentWord2.charAt(i).toLowerCase())
-            {
-                test += currentWord[i];
-                invalido = false;
-            }
-            else
-                test+= "*";
+function CheckInput(letterX)
+{
+    var test = '';
+    var invalido = true;
+    var currentWord2 = currentWord;
+    //alert(currentWord + currentWord.length.toString());
+    for (i = 0; i < currentWord.length; i++) 
+    { 
+        //alert(letterX + "  -  " + currentWord.charAt(i));
+        if(letterX.toLowerCase() == currentWord2.charAt(i).toLowerCase())
+        {
+            test += currentWord[i];
+            invalido = false;
         }
-        if(invalido)    
-            return UpdateWord(letterX);
-        else 
-            return test;
+        else
+            test+= "*";
     }
+    if(invalido)    
+        return UpdateWord(letterX);
+    else 
+        return test;
+}
 
-    function UpdateWord(letter)
-    {
-        if(letter != " " || letter != "")
-            wrongLetters.push(letter);
-        alert("Palpites errados: " + wrongLetters.toString());
-        return null;
-    }
+function UpdateWord(letter)
+{
+    if(letter != " " || letter != "")
+        wrongLetters.push(letter);
+    alert("Palpites errados: " + wrongLetters.toString());
+    return null;
+}
 
-    function StartHiddenWord()
-    {
-        var currentListIndex = Math.floor(Math.random() * listWord.length);
-        currentWord = listWord[currentListIndex];
-        hiddenWord = '';
-        for (i = 0; i < currentWord.length; i++) 
-            if(currentWord == " ")
-                hiddenWord += " ";
-            else
-                hiddenWord += "*";
-        //alert(hiddenWord);
-        return hiddenWord;
-    }
+function StartHiddenWord()
+{
+    var currentListIndex = Math.floor(Math.random() * listWord.length);
+    currentWord = listWord[currentListIndex];
+    hiddenWord = '';
+    for (i = 0; i < currentWord.length; i++) 
+        if(currentWord == " ")
+            hiddenWord += " ";
+        else
+            hiddenWord += "*";
+    //alert(hiddenWord);
+    return hiddenWord;
+}
 
-    function StartGame()
-    {
-        SetDisplay("startButton", false);    
-        SetDisplay("inputChar", true);    
-    }
+function StartGame()
+{
+    SetDisplay("startButton", false);    
+    SetDisplay("inputChar", true);    
+}
 
-    function EndGame()
-    {   
-        SetDisplay("inputChar", false);    
-        //SetDisplay("startButton", true);
-    }
+function EndGame()
+{   
+    SetDisplay("inputChar", false);    
+    //SetDisplay("startButton", true);
+}
 
-    function SetDisplay(id, visible) 
-    {
-        var x = document.getElementById(id);
-        if (visible) 
-            x.style.display = "block";
-        else 
-            x.style.display = "none";
-    }
+function SetDisplay(id, visible) 
+{
+    var x = document.getElementById(id);
+    if (visible) 
+        x.style.display = "block";
+    else 
+        x.style.display = "none";
+}
