@@ -31,14 +31,15 @@ App.controller('HangmanCtrl', function($scope, $http) {
     {
         var letter = document.getElementById("inputLetter").value.toString();
 
-        if(/[a-z]/gm.test(letter)      || letter.toLowerCase() == "ç" || letter.toLowerCase() == "ê" ||
-           letter.toLowerCase() == "é" || letter.toLowerCase() == "à" || letter.toLowerCase() == "á" ||
-           letter.toLowerCase() == "â" || letter.toLowerCase() == "ã" || letter.toLowerCase() == "õ" ||
-           letter.toLowerCase() == "ó" || letter.toLowerCase() == "ò" || letter.toLowerCase() == "ô" ||      
-           letter.toLowerCase() == "í" || letter.toLowerCase() == "ì" || letter.toLowerCase() == "ú" ||
-           letter.toLowerCase() == "ú" || letter.toLowerCase() == "ù")
+        if(!/[a-z]/gm.test(letter)     && letter.toLowerCase() != "ç" && letter.toLowerCase() != "ê" &&
+           letter.toLowerCase() != "é" && letter.toLowerCase() != "à" && letter.toLowerCase() != "á" &&
+           letter.toLowerCase() != "â" && letter.toLowerCase() != "ã" && letter.toLowerCase() != "õ" &&
+           letter.toLowerCase() != "ó" && letter.toLowerCase() != "ò" && letter.toLowerCase() != "ô" &&      
+           letter.toLowerCase() != "í" && letter.toLowerCase() != "ì" && letter.toLowerCase() != "ú" &&
+           letter.toLowerCase() != "ú" && letter.toLowerCase() != "ù")        
+            alert("Insira um valor válido!");
+        else
         {
-            alert(letter);
             var aux = CheckInput(letter);
             //alert($scope.hidden);
             if(aux != null)
@@ -79,9 +80,7 @@ App.controller('HangmanCtrl', function($scope, $http) {
             //alert(aux);
             //alert($scope.hidden);
             document.getElementById("inputLetter").value = '';
-        }
-        else            
-            alert("Insira um valor válido!");
+        }           
     }
 });
 
