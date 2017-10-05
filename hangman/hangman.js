@@ -8,7 +8,7 @@ var hiddenWord = '';
 
 App.controller('HangmanCtrl', function($scope, $http) {
     //$http.get('https://leonardogsantana.github.io/paises.json')
-    $http.get('./paises.json')
+    $http.get('./hangman/paises.json')
         .then(function(res){
         $scope.registros = res.data.paises;
         $scope.todosPaises = res.data;
