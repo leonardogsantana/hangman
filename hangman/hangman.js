@@ -30,11 +30,11 @@ App.controller('HangmanCtrl', function($scope, $http) {
     $scope.Update = function () 
     {
         var letter = document.getElementById("inputLetter").value.toString();
-        if(!/[a-z]/gm.test(letter))
-            alert("Insira um valor válido!");
-        else
+
+        if(Conditions())
         {
-            var aux = CheckInput(document.getElementById("inputLetter").value.toString());
+            if()
+               var aux = CheckInput(letter);
             //alert($scope.hidden);
             if(aux != null)
             {    
@@ -61,7 +61,7 @@ App.controller('HangmanCtrl', function($scope, $http) {
                 if(win)
                     $scope.victory = "Você ganhou!!!";
             }
-            
+
             if(wrongLetters.length < 5)
                 $scope.miss = wrongLetters.length;
             else
@@ -70,13 +70,27 @@ App.controller('HangmanCtrl', function($scope, $http) {
                 $scope.victory = "Você perdeu!!!";
                 EndGame();
             }
-            
+
             //alert(aux);
             //alert($scope.hidden);
             document.getElementById("inputLetter").value = '';
         }
+        else            
+            alert("Insira um valor válido!");
     }
 });
+
+function Conditions()
+{
+    if(/[a-z]/gm.test(letter) || letter.toLowerCase() == "ç" || letter.toLowerCase() == "ê" ||
+       letter.toLowerCase() == "é" || letter.toLowerCase() == "à" || letter.toLowerCase() == "á" ||
+       letter.toLowerCase() == "â" || letter.toLowerCase() == "ã" || letter.toLowerCase() == "õ" ||
+       letter.toLowerCase() == "ó" || letter.toLowerCase() == "ò" || letter.toLowerCase() == "ô" ||      
+       letter.toLowerCase() == "í" || letter.toLowerCase() == "ì" || letter.toLowerCase() == "ú" ||
+       letter.toLowerCase() == "ú" || letter.toLowerCase() == "ù")
+        return true;
+    return false;
+}
 
 function IsNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
