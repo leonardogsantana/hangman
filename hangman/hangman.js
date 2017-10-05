@@ -31,13 +31,15 @@ App.controller('HangmanCtrl', function($scope, $http) {
     {
         var letter = document.getElementById("inputLetter").value.toString();
 
-        if(!/[a-z]/gm.test(letter)     && letter.toLowerCase() != "ç" && letter.toLowerCase() != "ê" &&
+        if(!/[a-z]/gm.test(letter)     || letter.toLowerCase() != "ç" && letter.toLowerCase() != "ê" &&
            letter.toLowerCase() != "é" && letter.toLowerCase() != "à" && letter.toLowerCase() != "á" &&
            letter.toLowerCase() != "â" && letter.toLowerCase() != "ã" && letter.toLowerCase() != "õ" &&
            letter.toLowerCase() != "ó" && letter.toLowerCase() != "ò" && letter.toLowerCase() != "ô" &&      
            letter.toLowerCase() != "í" && letter.toLowerCase() != "ì" && letter.toLowerCase() != "ú" &&
            letter.toLowerCase() != "ú" && letter.toLowerCase() != "ù")        
+        {
             alert("Insira um valor válido!");
+        }
         else
         {
             var aux = CheckInput(letter);
