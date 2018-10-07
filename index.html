@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html >
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="hangman/hangman.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-        <script src="hangman/hangman.js"></script>
-    </head>
+<html>
 
-    <body>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="hangman/hangman.css">
+    <link rel="stylesheet" href="https://leonardogsantana.github.io/games.css">
+    <title>Portfolio of Leonardo Santana - Hangman</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="hangman/hangman.js"></script>
+</head>
+
+<body>
+    <div>
+        <header>
+            <h3>Portfolio of </h3>
+            <h1><b>Leonardo Santana</b></h1>
+        </header>
         <div ng-app="App" ng-controller="HangmanCtrl">
 
-            <h1>O jogo da forca</h1>
+            <br><h1>Hangman</h1>
 
             <div><img src="hangman/{{miss}}.png"></div>
             <button id="startButton" onclick="StartGame()">Começar o jogo!</button>
@@ -20,13 +28,22 @@
                         <a class="hiddenLetter">{{letter}}</a>
                     </li>
                 </ul>
-                <br>Digite uma letra: 
+                <br>Digite uma letra:
                 <form ng-submit="Update()">
-                    <input type="text" id="inputLetter" maxlength="1"/>
+                    <input type="text" id="inputLetter" maxlength="1" />
                 </form>
             </div>
             <div>{{victory}}</div>
-
         </div>
-    </body>
+        <form action="https://leonardogsantana.github.io/index.html">
+            <button class="customButton" type="submit" name="botao-return">Return To Main</button>
+        </form>
+
+    </div>
+    <footer>
+        <p>Leonardo Santana<br>
+            © 2018</a></p>
+    </footer>
+</body>
+
 </html>
