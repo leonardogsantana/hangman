@@ -70,7 +70,7 @@ App.controller('HangmanCtrl', function($scope, $http) {
                     $scope.victory = "Você ganhou!!!";
             }
 
-            if(wrongLetters.length < 5)
+            if(wrongLetters.length < 6)
                 $scope.miss = wrongLetters.length;
             else
             {
