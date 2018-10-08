@@ -167,7 +167,7 @@ function SetDisplay(id, visible)
 {
     var x = document.getElementById(id);
     if (visible) 
-        x.style.display = "block";
+        x.style.display = "inline-block";
     else 
         x.style.display = "none";
 }
