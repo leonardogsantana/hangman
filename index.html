@@ -22,7 +22,7 @@
 
             <div><img src="hangman/{{miss}}.png"></div>
             <button id="startButton" onclick="StartGame()">Começar o jogo!</button>
-            <div id="inputChar">
+            <div id="inputChar" style="display: inline-block">
                 <ul>
                     <li ng-repeat="letter in hidden track by $index">
                         <a class="hiddenLetter">{{letter}}</a>
