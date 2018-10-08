@@ -22,7 +22,7 @@
 
             <div><img src="hangman/{{miss}}.png"></div>
             <button id="startButton" onclick="StartGame()">Começar o jogo!</button>
-            <div id="inputChar" style="display: inline-block">
+            <div id="inputChar">
                 <ul>
                     <li ng-repeat="letter in hidden track by $index">
                         <a class="hiddenLetter">{{letter}}</a>
@@ -33,7 +33,7 @@
                     <input type="text" id="inputLetter" maxlength="1" />
                 </form>
             </div>
-            <div class="words">{{victory}}</div>
+            <div>{{victory}}</div>
         </div>
         <form action="https://leonardogsantana.github.io/index.html">
             <button class="customButton" type="submit" name="botao-return">Return To Main</button>
