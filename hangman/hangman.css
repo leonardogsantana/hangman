@@ -6,8 +6,6 @@ body {
 }
 h1 {
     text-align: center;
-    border-bottom: 3px solid blueviolet;
-    color: blueviolet;
 }
 
 ul {
@@ -47,6 +45,11 @@ li a {
 .hiddenLetter:hover {
     background-color: white;
     color: black;
+}
+
+.words
+{
+    display: flex;
 }
 
 #startButton
